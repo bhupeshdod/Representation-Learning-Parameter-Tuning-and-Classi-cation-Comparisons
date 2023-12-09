@@ -23,27 +23,23 @@ This project involves a comprehensive analysis of the Abalone and Wine datasets 
 ## Key Findings
 ### Table 6.1: Accuracy Percentage for Different Algorithms on Abalone Dataset
 
-| Best Settings | Abalone_Raw | Abalone_PCA | Abalone_LDA |
-|---------------|-------------|-------------|-------------|
-| **kNN** | k=73, weights="distance" | 28.32% | 27.17% |
-| **Complement Naive Bayes** | fit_prior=True | 17.56% | 20.02% | 23.53% |
-| **Decision Tree** | See Notes | 24.69% | 27.94% | 24.69% |
-| **Random Forest** | See Notes | 27.18% | 26.79% | 27.94% |
-| **Gradient Tree Boosting** | See Notes | 26.60% | 23.72% | 26.70% |
-
-*Notes: Decision Tree and Random Forest have specific settings for RAW, PCA, and LDA.*
+| Algorithm               | Best Settings for RAW                  | Accuracy RAW | Best Settings for PCA                  | Accuracy PCA | Best Settings for LDA                  | Accuracy LDA |
+|-------------------------|----------------------------------------|--------------|----------------------------------------|--------------|----------------------------------------|--------------|
+| **kNN**                 | k=73, weights="distance"               | 28.32%       | k=73, weights="distance"               | 27.17%       | k=73, weights="distance"               | 28.32%       |
+| **Complement Naive Bayes** | fit_prior=True                       | 17.56%       | fit_prior=True                         | 20.02%       | fit_prior=True                         | 23.53%       |
+| **Decision Tree**       | RAW -> max_depth=5                     | 24.69%       | PCA -> max_depth=4                     | 27.94%       | LDA -> max_depth=4                     | 24.69%       |
+| **Random Forest**       | RAW -> max_depth=9, n_estimators=50    | 27.18%       | PCA -> max_depth=4, n_estimators=40    | 26.79%       | LDA -> max_depth=6, n_estimators=40    | 27.94%       |
+| **Gradient Tree Boosting** | RAW -> max_depth=5, max_leaf_nodes=4, n_estimators=7 | 26.60% | PCA -> max_depth=4, max_leaf_nodes=4, n_estimators=5 | 23.72% | LDA -> max_depth=2, max_leaf_nodes=16, n_estimators=10 | 26.70% |
 
 ### Table 6.2: Accuracy Percentage for Different Algorithms on Wine Dataset
 
-| Best Settings | Wine_Raw | Wine_PCA | Wine_LDA |
-|---------------|----------|----------|----------|
-| **kNN** | k=46, weights="distance" | 68.15% | 67.38% |
-| **Complement Naive Bayes** | fit_prior=True | 47.89% | 44.46% | 44.46% |
-| **Decision Tree** | See Notes | 58.40% | 58.65% | 59.38% |
-| **Random Forest** | See Notes | 68.92% | 67.57% | 64.49% |
-| **Gradient Tree Boosting** | See Notes | 59.57% | 56.55% | 57.97% |
-
-*Notes: As with the Abalone dataset, specific settings for each representation technique apply.*
+| Algorithm               | Best Settings for RAW                  | Accuracy RAW | Best Settings for PCA                  | Accuracy PCA | Best Settings for LDA                  | Accuracy LDA |
+|-------------------------|----------------------------------------|--------------|----------------------------------------|--------------|----------------------------------------|--------------|
+| **kNN**                 | k=46, weights="distance"               | 68.15%       | k=46, weights="distance"               | 67.38%       | k=46, weights="distance"               | 68.15%       |
+| **Complement Naive Bayes** | fit_prior=True                       | 47.89%       | fit_prior=True                         | 44.46%       | fit_prior=True                         | 44.46%       |
+| **Decision Tree**       | RAW -> max_depth=13                    | 58.40%       | PCA -> max_depth=14                    | 58.65%       | LDA -> max_depth=17                    | 59.38%       |
+| **Random Forest**       | RAW -> max_depth=14, n_estimators=50   | 68.92%       | PCA -> max_depth=14, n_estimators=50   | 67.57%       | LDA -> max_depth=14, n_estimators=40   | 64.49%       |
+| **Gradient Tree Boosting** | RAW -> max_depth=6, max_leaf_nodes=32, n_estimators=10 | 59.57% | PCA -> max_depth=7, max_leaf_nodes=32, n_estimators=10 | 56.55% | LDA -> max_depth=8, max_leaf_nodes=32, n_estimators=10 | 57.97% |
 
 ### Summary of Results
 - **Abalone Dataset**: Best - kNN; Worst - Naive Bayes
